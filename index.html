@@ -47,8 +47,9 @@
         max(16px, env(safe-area-inset-left));
     }
     .logo {
-      width: min(90vw, 1200px);
-      height: auto;
+      width: min(82vw, 1050px);   /* close to the original on-screen scale */
+      height: auto;               /* preserve the image's natural aspect ratio */
+      max-height: 58vh;           /* keep the logo + text on one screen */
       display: block;
       margin: 0 auto clamp(8px, 1.5vw, 18px);
     }
@@ -73,6 +74,17 @@
       margin-top: clamp(16px, 3vw, 26px);
       font-size: clamp(14px, 3.4vw, 17px);
       color: #262626;
+    }
+    /* Fade in the logo and text from the white background on load (~500ms) */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    .logo, .description, footer {
+      animation: fadeIn 500ms ease-in both;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo, .description, footer { animation: none; }
     }
     /* Fallback for browsers without svh support */
     @supports not (height: 100svh) {
