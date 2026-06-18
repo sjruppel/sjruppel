@@ -1,12 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sjruppel</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>steve ruppel</title>
+  <meta name="description" content="Handcrafted Custom Framing & Professional Art Installation — steve ruppel / sjruppel@gmail.com" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/faviconS.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/faviconS.png" />
+  <link rel="apple-touch-icon" href="assets/faviconS.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Steve Ruppel" />
+  <meta property="og:title" content="steve ruppel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sjruppel.com" />
+  <meta property="og:description" content="Handcrafted Custom Framing & Professional Art Installation — steve ruppel / sjruppel@gmail.com" />
+  <meta property="og:image" content="assets/goldenstateofmind.png" />
+
+  <link rel="stylesheet" href="https://fonts.bunny.net/css?family=open-sans:300,400,600" />
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    body {
+      background-color: #ffffff;
+      color: #262626;
+      font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 5vh 24px;
+    }
+    .logo {
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      display: block;
+      margin: 0 auto 32px;
+    }
+    .description p {
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .description a {
+      color: #262626;
+      text-decoration: none;
+    }
+    .description a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #262626;
+    }
+    @media (max-width: 600px) {
+      .description p { font-size: 16px; }
+    }
+  </style>
 </head>
 <body>
-  <h1>sjruppel</h1>
-  <p>Coming soon.</p>
+  <header>
+    <img class="logo" src="assets/goldenstateofmind.png"
+         alt="golden state of mind"
+         width="3471" height="1947" />
+  </header>
+
+  <main class="description">
+    <p>
+      Handcrafted Custom Framing &amp; Professional Art Installation<br />
+      &nbsp;<br />
+      steve ruppel / <a href="mailto:sjruppel@gmail.com">sjruppel@gmail.com</a>
+    </p>
+  </main>
+
+  <footer>
+    &copy; sjruppel.com <span id="year"></span>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
