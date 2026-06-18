@@ -78,16 +78,18 @@
       font-size: clamp(12px, 2.5vw, 14px);
       color: #262626;
     }
-    /* Fade in the logo and text from the white background on load (~500ms) */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
+    /* Fade the logo and text up from the white background once loaded (1s) */
     .logo, .description, footer {
-      animation: fadeIn 500ms ease-in both;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+    body.loaded .logo,
+    body.loaded .description,
+    body.loaded footer {
+      opacity: 1;
     }
     @media (prefers-reduced-motion: reduce) {
-      .logo, .description, footer { animation: none; }
+      .logo, .description, footer { opacity: 1; transition: none; }
     }
     /* Fallback for browsers without svh support */
     @supports not (height: 100svh) {
@@ -119,6 +121,18 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Reveal (fade in) once the page — including the logo image — has loaded.
+    function reveal() { document.body.classList.add("loaded"); }
+    if (document.readyState === "complete") {
+      requestAnimationFrame(reveal);
+    } else {
+      window.addEventListener("load", function () {
+        requestAnimationFrame(reveal);
+      });
+    }
+    // Safety net so content always appears even if the load event is delayed.
+    setTimeout(reveal, 3000);
   </script>
 </body>
 </html>
