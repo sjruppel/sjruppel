@@ -51,7 +51,7 @@
       height: auto;               /* preserve the image's natural aspect ratio */
       max-height: 58vh;           /* keep the logo + text on one screen */
       display: block;
-      margin: 0 auto clamp(8px, 1.5vw, 18px);
+      margin: 0 auto clamp(24px, 4vw, 48px);
     }
     .description {
       max-width: 42rem;
@@ -88,9 +88,8 @@
     body.loaded footer {
       opacity: 1;
     }
-    @media (prefers-reduced-motion: reduce) {
-      .logo, .description, footer { opacity: 1; transition: none; }
-    }
+    /* Safety: if JS is disabled, never leave content hidden */
+    .no-js .logo, .no-js .description, .no-js footer { opacity: 1; }
     /* Fallback for browsers without svh support */
     @supports not (height: 100svh) {
       body { min-height: 100vh; }
@@ -123,16 +122,22 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // Reveal (fade in) once the page — including the logo image — has loaded.
-    function reveal() { document.body.classList.add("loaded"); }
-    if (document.readyState === "complete") {
-      requestAnimationFrame(reveal);
-    } else {
-      window.addEventListener("load", function () {
-        requestAnimationFrame(reveal);
+    // Double rAF guarantees the browser paints the opacity:0 state first so the
+    // transition to opacity:1 actually animates.
+    function reveal() {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          document.body.classList.add("loaded");
+        });
       });
     }
+    if (document.readyState === "complete") {
+      reveal();
+    } else {
+      window.addEventListener("load", reveal);
+    }
     // Safety net so content always appears even if the load event is delayed.
-    setTimeout(reveal, 3000);
+    setTimeout(function () { document.body.classList.add("loaded"); }, 3000);
   </script>
 </body>
 </html>
