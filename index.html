@@ -1,127 +1,141 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en-US">
-
 <head>
-    <meta charset="UTF-8"/>
-    <link rel="icon" href="https://i0.wp.com/www.sjruppel.com/wp-content/uploads/2018/11/faviconS-76.png?fit=32%2C32&#038;ssl=1" sizes="32x32"/>
-    <title>steve ruppel</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Clean Serif Font -->
-    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=playfair-display:400">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>steve ruppel</title>
+  <meta name="description" content="Handcrafted Custom Framing & Professional Art Installation — steve ruppel / sjruppel@gmail.com" />
 
-    <style type="text/css">
-        /* The "Force Reset" - This stops WordPress/Plugins from breaking your layout */
-        html, body, div, img, a {
-            margin: 0 !important;
-            padding: 0 !important;
-            border: 0 !important;
-            box-shadow: none !important;
-            transform: none !important;
-            animation: none !important;
-        }
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/faviconS.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/faviconS.png" />
+  <link rel="apple-touch-icon" href="assets/faviconS.png" />
 
-        html, body {
-            width: 100% !important;
-            height: 100% !important;
-            background-color: #ffffff !important;
-            font-family: 'Playfair Display', Georgia, serif !important;
-            color: #262626 !important;
-            -webkit-font-smoothing: antialiased !important;
-        }
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Steve Ruppel" />
+  <meta property="og:title" content="steve ruppel" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sjruppel.com" />
+  <meta property="og:description" content="Handcrafted Custom Framing & Professional Art Installation — steve ruppel / sjruppel@gmail.com" />
+  <meta property="og:image" content="assets/goldenstateofmind.png" />
 
-        /* Enforce a strict vertical, centered stack */
-        .custom-wrapper {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            min-height: 100vh !important;
-            box-sizing: border-box !important;
-            padding: 40px 20px !important;
-            text-align: center !important;
-            background: #ffffff !important;
-            position: relative !important;
-            z-index: 999999 !important; /* Forces this layout to sit on top of everything else */
-        }
+  <link rel="stylesheet" href="https://fonts.bunny.net/css?family=cormorant-garamond:400,500,600" />
 
-        /* Constrain the logo exactly like the original screenshot */
-        .custom-logo {
-            max-width: 680px !important;
-            width: 100% !important;
-            height: auto !important;
-            display: block !important;
-            margin: 0 auto 50px auto !important;
-        }
-
-        /* Subtitle Text Styling */
-        .custom-text {
-            font-size: 24px !important;
-            line-height: 1.6 !important;
-            font-weight: 400 !important;
-            max-width: 800px !important;
-            margin: 0 auto 40px auto !important;
-            display: block !important;
-        }
-
-        /* Contact Details Styling */
-        .custom-contact {
-            font-size: 20px !important;
-            margin: 0 auto 60px auto !important;
-            display: block !important;
-        }
-
-        .custom-contact a {
-            color: #262626 !important;
-            text-decoration: none !important;
-            display: inline-block !important;
-        }
-
-        .custom-contact a:hover {
-            text-decoration: underline !important;
-        }
-
-        /* Footer Styling */
-        .custom-footer {
-            font-size: 14px !important;
-            color: #777777 !important;
-            display: block !important;
-            margin-top: auto !important;
-        }
-
-        /* Hide any stray elements WordPress or the plugin tries to inject at the bottom */
-        body > :not(.custom-wrapper) {
-            display: none !important;
-            opacity: 0 !important;
-            visibility: hidden !important;
-        }
-    </style>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+body {
+  margin: 0;
+  padding:
+    max(3vh, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(3vh, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+  background: #fff;
+  color: #262626;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  text-align: center;
+  display: block;   /* مهم: remove flex centering */
+}
+header {
+  margin-bottom: 24px;
+}
+.logo {
+ max-width: 100%;
+  max-height: 100vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+    .description {
+      max-width: 42rem;
+    }
+    .description p {
+      font-size: clamp(15px, 3.1vw, 19px);
+      line-height: 1.35;
+      letter-spacing: 0.01em;
+      margin: 0;
+    }
+    .description .contact {
+      margin-top: 0.5em;
+    }
+    .description a {
+      color: #262626;
+      text-decoration: none;
+      /* comfortable tap target on touch screens */
+      display: inline-block;
+      padding: 1px 0;
+    }
+    .description a:hover { text-decoration: underline; }
+    footer {
+      margin-top: clamp(12px, 2vw, 18px);
+      font-size: clamp(12px, 2.5vw, 14px);
+      color: #262626;
+    }
+    /* Fade the logo and text up from the white background once loaded (1s) */
+    .logo, .description, footer {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+    body.loaded .logo,
+    body.loaded .description,
+    body.loaded footer {
+      opacity: 1;
+    }
+    /* Safety: if JS is disabled, never leave content hidden */
+    .no-js .logo, .no-js .description, .no-js footer { opacity: 1; }
+    /* Fallback for browsers without svh support */
+    @supports not (height: 100svh) {
+      body { min-height: 100vh; }
+    }
+    /* Phones in landscape: tighten vertical space so the logo still fits */
+    @media (max-height: 500px) and (orientation: landscape) {
+      body { padding-top: 12px; padding-bottom: 12px; }
+      .logo { max-width: 760px; margin-bottom: 10px; }
+      footer { margin-top: 12px; }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <img class="logo" src="assets/goldenstateofmind.png"
+         alt="golden state of mind"
+         width="3471" height="1947" />
+  </header>
 
-    <!-- Using completely unique classes with !important tags to override WordPress -->
-    <div class="custom-wrapper">
-        
-        <!-- Logo -->
-        <img class="custom-logo" src="https://www.sjruppel.com/wp-content/uploads/2018/11/goldenstateofmind.png" alt="golden state of mind"/>
-        
-        <!-- Main Description -->
-        <div class="custom-text">
-            Handcrafted Custom Framing &amp; Professional Art Installation
-        </div>
-        
-        <!-- Contact Info -->
-        <div class="custom-contact">
-            steve ruppel &nbsp;/&nbsp; <a href="mailto:sjruppel@gmail.com">sjruppel@gmail.com</a>
-        </div>
-        
-        <!-- Footer -->
-        <div class="custom-footer">
-            © sjruppel.com 2026
-        </div>
+  <main class="description">
+    <p class="tagline">Handcrafted Custom Framing &amp; Professional Art Installation</p>
+    <p class="contact">steve ruppel / <a href="mailto:sjruppel@gmail.com">sjruppel@gmail.com</a></p>
+  </main>
 
-    </div>
+  <footer>
+    &copy; sjruppel.com <span id="year"></span>
+  </footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Reveal (fade in) once the page — including the logo image — has loaded.
+    // Double rAF guarantees the browser paints the opacity:0 state first so the
+    // transition to opacity:1 actually animates.
+    function reveal() {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          document.body.classList.add("loaded");
+        });
+      });
+    }
+    if (document.readyState === "complete") {
+      reveal();
+    } else {
+      window.addEventListener("load", reveal);
+    }
+    // Safety net so content always appears even if the load event is delayed.
+    setTimeout(function () { document.body.classList.add("loaded"); }, 3000);
+  </script>
 </body>
 </html>
