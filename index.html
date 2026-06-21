@@ -26,33 +26,30 @@
       margin: 0;
       padding: 0;
     }
-    body {
-      background-color: #ffffff;
-      color: #262626;
-      font-family: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
-      font-weight: 500;
-      -webkit-text-size-adjust: 100%;
-      -webkit-font-smoothing: antialiased;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100svh; /* svh avoids mobile browser-bar jump; vh fallback below */
-      text-align: center;
-      /* respect notches/safe areas on phones — tighter top/bottom so the page is shorter */
-      padding:
-        max(3vh, env(safe-area-inset-top))
-        max(16px, env(safe-area-inset-right))
-        max(3vh, env(safe-area-inset-bottom))
-        max(16px, env(safe-area-inset-left));
-    }
-    .logo {
-      width: min(82vw, 1050px);   /* close to the original on-screen scale */
-      height: auto;               /* preserve the image's natural aspect ratio */
-      max-height: 58vh;           /* keep the logo + text on one screen */
-      display: block;
-      margin: 0 auto clamp(24px, 4vw, 48px);
-    }
+body {
+  margin: 0;
+  padding:
+    max(3vh, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(3vh, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+  background: #fff;
+  color: #262626;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  text-align: center;
+  display: block;   /* مهم: remove flex centering */
+}
+header {
+  margin-bottom: 24px;
+}
+.logo {
+  width: min(95vw, 1100px);
+  height: auto;
+  max-width: 100%;
+  max-height: none;   /* remove the constraint */
+  display: block;
+  margin: 0 auto;
+}
     .description {
       max-width: 42rem;
     }
