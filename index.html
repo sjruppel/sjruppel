@@ -10,7 +10,6 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/faviconS.png" />
   <link rel="apple-touch-icon" href="assets/faviconS.png" />
 
-  <!-- Open Graph -->
   <meta property="og:site_name" content="Steve Ruppel" />
   <meta property="og:title" content="steve ruppel" />
   <meta property="og:type" content="website" />
@@ -22,106 +21,113 @@
 
   <style>
     * { box-sizing: border-box; }
+    
     html, body {
       margin: 0;
       padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* Prevents unwanted scrolling on a full-screen landing page */
+      background: #fff;
     }
-body {
-  margin: 0;
-  padding:
-    max(3vh, env(safe-area-inset-top))
-    max(16px, env(safe-area-inset-right))
-    max(3vh, env(safe-area-inset-bottom))
-    max(16px, env(safe-area-inset-left));
-  background: #fff;
-  color: #262626;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  text-align: center;
-  display: block;   /* مهم: remove flex centering */
-}
-header {
-  margin-bottom: 24px;
-}
-.logo {
- max-width: 100%;
-  max-height: 100vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
+
+    /* Full screen background image */
+    .bg-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100svh; /* Uses safe viewport height for mobile browsers */
+      object-fit: cover; /* Forces image to cover screen without distorting aspect ratio */
+      z-index: 1;
+    }
+
+    /* Content Overlay Container */
+    .content-overlay {
+      position: relative;
+      z-index: 2; /* Sits on top of the image */
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; /* Pushes text to the bottom. Change to 'center' if preferred */
+      align-items: center;
+      text-align: center;
+      padding: max(4vh, env(safe-area-inset-bottom)) 20px;
+    }
+
     .description {
       max-width: 42rem;
+      /* Background blur/tint makes text highly readable over any image background */
+      background: rgba(255, 255, 255, 0.85); 
+      padding: 20px 30px;
+      border-radius: 4px;
+      backdrop-filter: blur(5px); 
     }
+
     .description p {
-      font-size: clamp(15px, 3.1vw, 19px);
-      line-height: 1.35;
-      letter-spacing: 0.01em;
+      font-size: clamp(16px, 3vw, 20px);
+      line-height: 1.4;
+      letter-spacing: 0.02em;
       margin: 0;
+      color: #262626;
+      font-family: "Cormorant Garamond", Georgia, serif;
     }
+
     .description .contact {
-      margin-top: 0.5em;
+      margin-top: 0.75em;
     }
+
     .description a {
       color: #262626;
       text-decoration: none;
-      /* comfortable tap target on touch screens */
       display: inline-block;
-      padding: 1px 0;
+      font-weight: 500;
     }
-    .description a:hover { text-decoration: underline; }
+
+    .description a:hover { 
+      text-decoration: underline; 
+    }
+
     footer {
-      margin-top: clamp(12px, 2vw, 18px);
-      font-size: clamp(12px, 2.5vw, 14px);
-      color: #262626;
+      margin-top: 15px;
+      font-size: clamp(11px, 2vw, 13px);
+      color: #555;
     }
-    /* Fade the logo and text up from the white background once loaded (1s) */
-    .logo, .description, footer {
+
+    /* Smooth Fade-in effect on load */
+    .bg-image, .content-overlay {
       opacity: 0;
-      transition: opacity 1s ease-in;
+      transition: opacity 1.2s ease-in-out;
     }
-    body.loaded .logo,
-    body.loaded .description,
-    body.loaded footer {
+
+    body.loaded .bg-image,
+    body.loaded .content-overlay {
       opacity: 1;
     }
-    /* Safety: if JS is disabled, never leave content hidden */
-    .no-js .logo, .no-js .description, .no-js footer { opacity: 1; }
-    /* Fallback for browsers without svh support */
-    @supports not (height: 100svh) {
-      body { min-height: 100vh; }
-    }
-    /* Phones in landscape: tighten vertical space so the logo still fits */
-    @media (max-height: 500px) and (orientation: landscape) {
-      body { padding-top: 12px; padding-bottom: 12px; }
-      .logo { max-width: 760px; margin-bottom: 10px; }
-      footer { margin-top: 12px; }
+
+    .no-js .bg-image, .no-js .content-overlay { 
+      opacity: 1; 
     }
   </style>
 </head>
 <body>
-  <header>
-    <img class="logo" src="assets/goldenstateofmind.png"
-         alt="golden state of mind"
-         width="3471" height="1947" />
-  </header>
 
-  <main class="description">
-    <p class="tagline">Handcrafted Custom Framing &amp; Professional Art Installation</p>
-    <p class="contact">steve ruppel / <a href="mailto:sjruppel@gmail.com">sjruppel@gmail.com</a></p>
-  </main>
+  <img class="bg-image" src="assets/goldenstateofmind.png" alt="golden state of mind" />
 
-  <footer>
-    &copy; sjruppel.com <span id="year"></span>
-  </footer>
+  <div class="content-overlay">
+    <main class="description">
+      <p class="tagline">Handcrafted Custom Framing &amp; Professional Art Installation</p>
+      <p class="contact">steve ruppel / <a href="mailto:sjruppel@gmail.com">sjruppel@gmail.com</a></p>
+      
+      <footer>
+        &copy; sjruppel.com <span id="year"></span>
+      </footer>
+    </main>
+  </div>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Reveal (fade in) once the page — including the logo image — has loaded.
-    // Double rAF guarantees the browser paints the opacity:0 state first so the
-    // transition to opacity:1 actually animates.
     function reveal() {
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
@@ -134,7 +140,6 @@ header {
     } else {
       window.addEventListener("load", reveal);
     }
-    // Safety net so content always appears even if the load event is delayed.
     setTimeout(function () { document.body.classList.add("loaded"); }, 3000);
   </script>
 </body>
