@@ -3,181 +3,124 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <script type="text/javascript" nonce="04378272c3e2423da4a11a31e79" src="//local.adguard.org?ts=1782070303131&amp;type=content-script&amp;dmn=www.sjruppel.com&amp;url=https%3A%2F%2Fwww.sjruppel.com%2F&amp;app=com.apple.Safari&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script>
-    <script type="text/javascript" nonce="04378272c3e2423da4a11a31e79" src="//local.adguard.org?ts=1782070303131&amp;name=Web%20of%20Trust&amp;name=AdGuard%20Popup%20Blocker&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Assistant&amp;type=user-script"></script>
     <link rel="icon" href="https://i0.wp.com/www.sjruppel.com/wp-content/uploads/2018/11/faviconS-76.png?fit=32%2C32&#038;ssl=1" sizes="32x32"/>
-    <link rel="icon" href="https://i0.wp.com/www.sjruppel.com/wp-content/uploads/2018/11/faviconS-76.png?fit=144%2C144&#038;ssl=1" sizes="192x192"/>
-    <link rel="apple-touch-icon" href="https://i0.wp.com/www.sjruppel.com/wp-content/uploads/2018/11/faviconS-76.png?fit=144%2C144&#038;ssl=1"/>
-    <meta name="msapplication-TileImage" content="https://i0.wp.com/www.sjruppel.com/wp-content/uploads/2018/11/faviconS-76.png?fit=144%2C144&#038;ssl=1"/>
     <title>steve ruppel</title>
-
-    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, minimum-scale=1">
-    <meta name="description" content="Handcrafted Custom Framing &amp; Professional Art Installation steve ruppel / sjruppel@gmail.com"/>
-    <meta http-equiv="X-UA-Compatible" content=""/>
-    <meta property="og:site_name" content="steve ruppel - Handcrafted Custom Framing &amp; Professional Art Installation steve ruppel / sjruppel@gmail.com"/>
-    <meta property="og:title" content="steve ruppel"/>
-    <meta property="og:type" content="Maintenance"/>
-    <meta property="og:url" content="https://www.sjruppel.com"/>
-    <meta property="og:description" content="Handcrafted Custom Framing &amp; Professional Art Installation steve ruppel / sjruppel@gmail.com"/>
-    <link rel="profile" href="http://gmpg.org/xfn/11"/>
-    <link rel="pingback" href="https://www.sjruppel.com/xmlrpc.php"/>
-
-    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=Open%20Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic">
-    <script type="text/javascript" src="https://www.sjruppel.com/wp-includes/js/jquery/jquery.js"></script>
-    <script src="https://www.sjruppel.com/wp-content/plugins/maintenance/frontend/js/frontend.js?ver=4.30" id="frontend-js"></script>
-    <link rel="stylesheet" href="https://www.sjruppel.com/wp-includes/css/dashicons.min.css">
-    <link rel='stylesheet' id='mtnc-style-css' href='https://www.sjruppel.com/wp-content/plugins/maintenance/frontend/css/style.css?ver=1781886871' media='all'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
+    <!-- Clean Serif Font -->
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=playfair-display:400">
+
     <style type="text/css">
-    body {
-        background-color: #ffffff
-    }
+        /* The "Force Reset" - This stops WordPress/Plugins from breaking your layout */
+        html, body, div, img, a {
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            transform: none !important;
+            animation: none !important;
+        }
 
-    .preloader {
-        background-color: #ffffff
-    }
+        html, body {
+            width: 100% !important;
+            height: 100% !important;
+            background-color: #ffffff !important;
+            font-family: 'Playfair Display', Georgia, serif !important;
+            color: #262626 !important;
+            -webkit-font-smoothing: antialiased !important;
+        }
 
-    .mtnc-background-image {
-        -webkit-filter: blur(5px);
-        -moz-filter: blur(5px);
-        -o-filter: blur(5px);
-        -ms-filter: blur(5px);
-        filter: blur(5px);
-    }
+        /* Enforce a strict vertical, centered stack */
+        .custom-wrapper {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-height: 100vh !important;
+            box-sizing: border-box !important;
+            padding: 40px 20px !important;
+            text-align: center !important;
+            background: #ffffff !important;
+            position: relative !important;
+            z-index: 999999 !important; /* Forces this layout to sit on top of everything else */
+        }
 
-    body {
-        font-family: Open Sans;
-    }
+        /* Constrain the logo exactly like the original screenshot */
+        .custom-logo {
+            max-width: 680px !important;
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            margin: 0 auto 50px auto !important;
+        }
 
-    a, #login-form a.lost-pass, .maintenance a {
-        color: #262626;
-        text-decoration: underline;
-    }
+        /* Subtitle Text Styling */
+        .custom-text {
+            font-size: 24px !important;
+            line-height: 1.6 !important;
+            font-weight: 400 !important;
+            max-width: 800px !important;
+            margin: 0 auto 40px auto !important;
+            display: block !important;
+        }
 
-    body, #login-form, .site-title, .preloader i, .login-form, .login-form a.lost-pass, .btn-open-login-form, .site-content, .user-content-wrapper, .user-content, footer {
-        color: #262626;
-    }
+        /* Contact Details Styling */
+        .custom-contact {
+            font-size: 20px !important;
+            margin: 0 auto 60px auto !important;
+            display: block !important;
+        }
 
-    body, h2 {
-        font-weight: 300;
-    }
+        .custom-contact a {
+            color: #262626 !important;
+            text-decoration: none !important;
+            display: inline-block !important;
+        }
 
-    /* ==========================================================================
-       CUSTOM FULL-SCREEN BG OVERRIDES (Beats the Plugin Restrictions)
-       ========================================================================== */
-    
-    html, body {
-        width: 100% !important;
-        height: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
+        .custom-contact a:hover {
+            text-decoration: underline !important;
+        }
 
-    /* Break the plugin container caps */
-    .main-container, 
-    #wrapper, 
-    .mtnc_module, 
-    .mtnc_module > div {
-        max-width: 100% !important;
-        width: 100% !important;
-    }
+        /* Footer Styling */
+        .custom-footer {
+            font-size: 14px !important;
+            color: #777777 !important;
+            display: block !important;
+            margin-top: auto !important;
+        }
 
-    /* Force the Logo module to be a full-screen background layer */
-    #logo-ea1e7873 img {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        height: 100svh !important; 
-        object-fit: cover !important; 
-        z-index: -1 !important; 
-    }
-
-    /* Wrap text elegantly so it stands out against the full image background */
-    #content-a60d7054 {
-        margin-top: 15vh !important; /* Pushes the text block down slightly */
-    }
-
-    #content-a60d7054 > div {
-        max-width: 520px !important; 
-        margin: 0 auto !important;
-        background: rgba(255, 255, 255, 0.88) !important; 
-        padding: 30px 25px !important;
-        border-radius: 6px !important;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
-    }
-
-    #content-a60d7054 span {
-        line-height: 1.5 !important;
-        display: block;
-    }
-
-    /* Fix footer placement at bottom */
-    #footer-b527dd0c {
-        position: fixed !important;
-        bottom: 20px !important;
-        left: 0 !important;
-        width: 100% !important;
-    }
-    
-    #footer-b527dd0c div {
-        background: rgba(255, 255, 255, 0.8) !important;
-        display: inline-block;
-        padding: 5px 15px !important;
-        border-radius: 20px !important;
-    }
-
-    .mtnc-background-image {
-        display: none !important;
-    }
+        /* Hide any stray elements WordPress or the plugin tries to inject at the bottom */
+        body > :not(.custom-wrapper) {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+        }
     </style>
 </head>
 
-<body class="maintenance ">
+<body>
 
-    <div class="preloader">
-        <i class="fi-widget" aria-hidden="true"></i>
-    </div>
-
-    <div class="main-container">
-        <div id="wrapper">
-            
-            <div class="mtnc_module" id="logo-ea1e7873">
-                <div>
-                    <img src="https://www.sjruppel.com/wp-content/uploads/2018/11/goldenstateofmind.png" alt="golden state of mind"/>
-                </div>
-            </div>
-            
-            <div class="mtnc_module" id="header-4b5742b4">
-                <div>
-                    <h2><span style="text-align: center"></span></h2>
-                </div>
-            </div>
-            
-            <div class="mtnc_module" id="content-a60d7054">
-                <div>
-                    <div style="font-family:'Open Sans'; font-size:17px;">
-                        <span>
-                            <strong>Handcrafted Custom Framing &amp; Professional Art Installation</strong>
-                            <br><br>
-                            steve ruppel / 
-                            <a href="mailto:sjruppel@gmail.com" target="_blank">sjruppel@gmail.com</a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mtnc_module" id="footer-b527dd0c">
-                <div>
-                    <div style="font-family:'Open Sans'; font-size:13px;">
-                        <span>© sjruppel.com 2026</span>
-                    </div>
-                </div>
-            </div>
-
+    <!-- Using completely unique classes with !important tags to override WordPress -->
+    <div class="custom-wrapper">
+        
+        <!-- Logo -->
+        <img class="custom-logo" src="https://www.sjruppel.com/wp-content/uploads/2018/11/goldenstateofmind.png" alt="golden state of mind"/>
+        
+        <!-- Main Description -->
+        <div class="custom-text">
+            Handcrafted Custom Framing &amp; Professional Art Installation
         </div>
-        <div class="mtnc-background-image "></div>
+        
+        <!-- Contact Info -->
+        <div class="custom-contact">
+            steve ruppel &nbsp;/&nbsp; <a href="mailto:sjruppel@gmail.com">sjruppel@gmail.com</a>
+        </div>
+        
+        <!-- Footer -->
+        <div class="custom-footer">
+            © sjruppel.com 2026
+        </div>
+
     </div>
 
 </body>
