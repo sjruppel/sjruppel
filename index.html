@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en-US">
-
 <head>
     <meta charset="UTF-8"/>
     <link rel="icon" href="assets/faviconS.png" sizes="32x32"/>
@@ -10,7 +9,7 @@
     <link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500">
 
     <style type="text/css">
-        /* The "Force Reset" - This stops WordPress/Plugins from breaking your layout */
+        /* Global Reset */
         html, body, div, img, a {
             margin: 0 !important;
             padding: 0 !important;
@@ -24,14 +23,13 @@
             width: 100% !important;
             height: 100% !important;
             background-color: #ffffff !important;
-            /* Updated to look like Helvetica */
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
             color: #262626 !important;
             -webkit-font-smoothing: antialiased !important;
             -moz-osx-font-smoothing: grayscale !important;
         }
 
-        /* Enforce a strict vertical, centered stack */
+        /* Clean centered flex stack */
         .custom-wrapper {
             display: flex !important;
             flex-direction: column !important;
@@ -43,10 +41,10 @@
             text-align: center !important;
             background: #ffffff !important;
             position: relative !important;
-            z-index: 999999 !important; /* Forces this layout to sit on top of everything else */
+            z-index: 999999 !important;
         }
 
-        /* Constrain the logo exactly like the original screenshot */
+        /* Constrain logo image sizing */
         .custom-logo {
             max-width: 680px !important;
             width: 100% !important;
@@ -57,10 +55,10 @@
 
         /* Subtitle Text Styling */
         .custom-text {
-            font-size: 21px !important; /* Slightly adjusted down for sans-serif visual balance */
+            font-size: 21px !important;
             line-height: 1.6 !important;
             font-weight: 400 !important;
-            letter-spacing: -0.01em !important; /* Gives it that tight, premium Helvetica feel */
+            letter-spacing: -0.01em !important;
             max-width: 800px !important;
             margin: 0 auto 35px auto !important;
             display: block !important;
@@ -84,7 +82,7 @@
             text-decoration: underline !important;
         }
 
-        /* Footer Styling */
+        /* Footer Copyright Styling */
         .custom-footer {
             font-size: 13px !important;
             color: #8c8c8c !important;
@@ -93,7 +91,7 @@
             letter-spacing: 0.02em !important;
         }
 
-        /* Hide any stray elements WordPress or the plugin tries to inject at the bottom */
+        /* Force break unstyled environments */
         body > :not(.custom-wrapper) {
             display: none !important;
             opacity: 0 !important;
@@ -101,7 +99,6 @@
         }
     </style>
 </head>
-
 <body>
 
     <div class="custom-wrapper">
