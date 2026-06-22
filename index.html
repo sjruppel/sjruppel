@@ -7,9 +7,29 @@
     <title>steve ruppel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <!-- Clean Serif Font -->
-    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=playfair-display:400">
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500">
 
+    <style type="text/css">
+        /* The "Force Reset" - This stops WordPress/Plugins from breaking your layout */
+        html, body, div, img, a {
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            box-shadow: none !important;
+            transform: none !important;
+            animation: none !important;
+        }
+
+        html, body {
+            width: 100% !important;
+            height: 100% !important;
+            background-color: #ffffff !important;
+            /* Updated to look like Helvetica */
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+            color: #262626 !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
+        }
 
         /* Enforce a strict vertical, centered stack */
         .custom-wrapper {
@@ -37,17 +57,19 @@
 
         /* Subtitle Text Styling */
         .custom-text {
-            font-size: 24px !important;
+            font-size: 21px !important; /* Slightly adjusted down for sans-serif visual balance */
             line-height: 1.6 !important;
             font-weight: 400 !important;
+            letter-spacing: -0.01em !important; /* Gives it that tight, premium Helvetica feel */
             max-width: 800px !important;
-            margin: 0 auto 40px auto !important;
+            margin: 0 auto 35px auto !important;
             display: block !important;
         }
 
         /* Contact Details Styling */
         .custom-contact {
-            font-size: 20px !important;
+            font-size: 18px !important;
+            font-weight: 400 !important;
             margin: 0 auto 60px auto !important;
             display: block !important;
         }
@@ -64,10 +86,11 @@
 
         /* Footer Styling */
         .custom-footer {
-            font-size: 14px !important;
-            color: #777777 !important;
+            font-size: 13px !important;
+            color: #8c8c8c !important;
             display: block !important;
             margin-top: auto !important;
+            letter-spacing: 0.02em !important;
         }
 
         /* Hide any stray elements WordPress or the plugin tries to inject at the bottom */
@@ -81,23 +104,18 @@
 
 <body>
 
-    <!-- Using completely unique classes with !important tags to override WordPress -->
     <div class="custom-wrapper">
         
-        <!-- Logo -->
         <img class="custom-logo" src="assets/goldenstateofmind.png" alt="golden state of mind"/>
         
-        <!-- Main Description -->
         <div class="custom-text">
             Handcrafted Custom Framing &amp; Professional Art Installation
         </div>
         
-        <!-- Contact Info -->
         <div class="custom-contact">
             steve ruppel &nbsp;/&nbsp; <a href="mailto:sjruppel@gmail.com">sjruppel@gmail.com</a>
         </div>
         
-        <!-- Footer -->
         <div class="custom-footer">
             © sjruppel.com 2026
         </div>
